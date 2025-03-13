@@ -6,246 +6,105 @@
     <title>Shap Shap</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        .center-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-top: 15px;
-            padding-bottom: 30px;
-            /* height: 100vh; */
-        
-        .btn-orange{
-            background-color: orange;
-            border: 2;
-            color: slategray;
-        }
-    }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
-        function selectOption(element) {
-            document.getElementById("dropdownMenuButton").textContent = element.textContent;
-        }
+        emailjs.init("FNHHuR72KvgWWCu58"); // Replace with your EmailJS User ID
     </script>
 </head>
 <body>
-
-    <!-- <nav class="navbar navbar-expand-lg bg-white">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="logo.jpg" alt="" width="95px" height="80px"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <button><a class="nav-link active" aria-current="page" href="#">Order Now</a></button>
-              </li>
-              <li class="nav-item">
-                <button><a class="nav-link" href="https://wa.me/0615094099">Whatsapp</a></button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>     -->
-
-      <nav class="navbar navbar-dark bg-white fixed-top">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="logo.jpg" alt="" width="50px" height="40px"></a>
-          <button class="navbar-toggler bg-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">SHAP-SHAP</h5>
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                      <button><a class="nav-link active text-danger" aria-current="page" href="#">Order Now</a></button>
-                    </li>
-                    <br>
-                    <li class="nav-item">
-                      <button><a class="nav-link text-danger" href="https://wa.me/0615094099">Whatsapp</a></button>
-                    </li>
-                  </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
-    <!-- Bootstrap 5 Contact Form Snippet -->
-
-<div class="container px-1 my-4  test">
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="card border-0 rounded-3 shadow-lg">
-          <div class="card-body p-4">
-            <div class="text-center">
-              <div class="h1 fw-light"> Welcome to Shap Shap – Fast & Easy Grocery Shopping!</div>
-              <p class="mb-4 text-muted">Fresh groceries, delivered in no time! Simply select what you need from the dropdown, fill in your details, and let us handle the rest. <br>Shap Shap – your hassle-free way to shop!</p>
-            </div>
-  
-            <!-- * * * * * * * * * * * * * *
-            // * * SB Forms Contact Form * *
-            // * * * * * * * * * * * * * * *
-  
-            // This form is pre-integrated with SB Forms.
-            // To make this form functional, sign up at
-            // https://startbootstrap.com/solution/contact-forms
-            // to get an API token!
-            -->
-  
-            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-
-                <div class="center-container">
-                    <div class="dropdown">
-                        <button class="btn btn-orange dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                            Select an Option
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="#" onclick="selectOption(this)">Checkers</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectOption(this)">Friend House</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectOption(this)">Greendale Spar</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectOption(this)">Nottingham Spar</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectOption(this)">Woolworths</a></li>
-                        </ul>
+    <div class="container px-1 my-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 rounded-3 shadow-lg">
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <h1>Welcome to Shap Shap</h1>
+                            <p>Fast & Easy Grocery Shopping!</p>
+                        </div>
+                        <form id="orderForm">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="firstName" type="text" placeholder="First Name" required />
+                                <label for="firstName">First Name</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="lastName" type="text" placeholder="Last Name" required />
+                                <label for="lastName">Last Name</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="contactNumber" type="text" placeholder="Contact Number" required />
+                                <label for="contactNumber">Contact Number</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="email" type="email" placeholder="Email" required />
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="mb-3">
+                                <label>Select Store:</label>
+                                <select class="form-control" id="store">
+                                    <option>Checkers</option>
+                                    <option>Friend House</option>
+                                    <option>Greendale Spar</option>
+                                    <option>Nottingham Spar</option>
+                                    <option>Woolworths</option>
+                                </select>
+                            </div>
+                            <h3>Add Your Grocery List</h3>
+                            <div class="input-group mb-3">
+                                <input type="text" id="groceryInput" class="form-control" placeholder="Item">
+                                <input type="number" id="quantityInput" class="form-control" placeholder="Quantity" min="1">
+                                <button class="btn btn-primary" type="button" onclick="addGrocery()">Add</button>
+                            </div>
+                            <ul id="groceryList" class="list-group"></ul>
+                            <h3>Schedule Delivery</h3>
+                            <div class="mb-3">
+                                <label for="deliveryDate">Date:</label>
+                                <input type="date" class="form-control" id="deliveryDate" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="deliveryTime">Time:</label>
+                                <input type="time" class="form-control" id="deliveryTime" required>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="sendOrder()">Submit Order</button>
+                        </form>
                     </div>
                 </div>
-  
-              <!-- Name Input -->
-              <div class="form-floating mb-3">
-                <input class="form-control" id="name" type="text" placeholder="Name" data-sb-validations="required" />
-                <label for="name">First Name</label>
-                <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
-              </div>
-
-              <div class="form-floating mb-3">
-                <input class="form-control" id="name" type="text" placeholder="Name" data-sb-validations="required" />
-                <label for="name">Last Name</label>
-                <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
-              </div>
-
-              <div class="form-floating mb-3">
-                <input class="form-control" id="name" type="text" placeholder="Name" data-sb-validations="required" />
-                <label for="name">Contact Number</label>
-                <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
-              </div>
-  
-              <!-- Email Input -->
-              <div class="form-floating mb-3">
-                <input class="form-control" id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required,email" />
-                <label for="emailAddress">Email Address</label>
-                <div class="invalid-feedback" data-sb-feedback="emailAddress:required">Email Address is required.</div>
-                <div class="invalid-feedback" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
-              </div>
-  
-              <!-- Message Input -->
-              <div class="form-floating mb-3">
-                <textarea class="form-control" id="message" type="text" placeholder="Message" style="height: 10rem;" data-sb-validations="required"></textarea>
-                <label for="message">Write your order ! </label>
-                <div class="invalid-feedback" data-sb-feedback="message:required">Message is required.</div>
-              </div>
-
-              <!-- Add yout grocery list  -->
-<section>
-        <div class="grocery-list">
-              <div class="container mt-4">
-                <h3>📝 Add Your Grocery List</h3>
-                <div class="input-group mb-3 px-0">
-                    <input type="text" id="groceryInput" class="form-control" placeholder="Enter grocery item">
-                    <input type="number" id="quantityInput" class="form-control" placeholder="Quantity" min="1">
-                    <button class="btn btn-primary" onclick="addGrocery()">Add</button>
-                </div>
-                <ul id="groceryList" class="list-group"></ul>
             </div>
         </div>
-</section>
-
-                  <!-- Schedule Delivery Section -->
-<section class="Schedule">
-    <div class="schedule-container">
-        <h3>📅 Schedule a Delivery</h3>
-        <form>
-            <div class="mb-3">
-                <label for="deliveryDate" class="form-label">Select Date:</label>
-                <input type="date" class="form-control" id="deliveryDate" required>
-            </div>
-            <div class="mb-3">
-                <label for="deliveryTime" class="form-label">Select Time:</label>
-                <input type="time" class="form-control" id="deliveryTime" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Confirm Delivery</button>
-        </form>
     </div>
-</div>
-</section>
-
-
-
-  
-              <!-- Submit success message -->
-              <div class="d-none" id="submitSuccessMessage">
-                <div class="text-center mb-3">
-                  <div class="fw-bolder">Form submission successful!</div>
-                  <p>To activate this form, sign up at</p>
-                  <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                </div>
-              </div>
-  
-              <!-- Submit error message -->
-              <div class="d-none" id="submitErrorMessage">
-                <div class="text-center text-danger mb-3">Error sending message!</div>
-              </div>
-  
-              <!-- Submit button -->
-              <!-- <div class="d-grid px-5">
-                <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button>
-              </div> -->
-            </form>
-            <!-- End of contact form -->
-  
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- CDN Link to SB Forms Scripts -->
-  <script src="./bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>\
-
-  <script>
-    function addGrocery() {
-        let itemInput = document.getElementById("groceryInput");
-        let quantityInput = document.getElementById("quantityInput");
-        let list = document.getElementById("groceryList");
-
-        let itemName = itemInput.value.trim();
-        let quantity = quantityInput.value.trim();
-
-        if (itemName !== "" && quantity !== "" && quantity > 0) {
-            let listItem = document.createElement("li");
-            listItem.className = "list-group-item d-flex justify-content-between align-items-center";
-            listItem.innerHTML = `<strong>${itemName}</strong> - ${quantity}`;
-
-            let removeButton = document.createElement("button");
-            removeButton.className = "btn btn-danger btn-sm";
-            removeButton.textContent = "Remove";
-            removeButton.onclick = function () {
-                list.removeChild(listItem);
-            };
-
-            listItem.appendChild(removeButton);
-            list.appendChild(listItem);
-
-            itemInput.value = ""; // Clear input fields
-            quantityInput.value = "";
+    <script>
+        function addGrocery() {
+            let item = document.getElementById("groceryInput").value;
+            let quantity = document.getElementById("quantityInput").value;
+            if (item && quantity) {
+                let listItem = document.createElement("li");
+                listItem.className = "list-group-item d-flex justify-content-between align-items-center";
+                listItem.innerHTML = `${item} - ${quantity} <button class='btn btn-danger btn-sm' onclick='removeGrocery(this)'>Remove</button>`;
+                document.getElementById("groceryList").appendChild(listItem);
+            }
         }
-    }
-</script>
 
+        function removeGrocery(button) {
+            let listItem = button.parentElement;
+            listItem.remove();
+        }
+
+        function sendOrder() {
+            let groceries = [];
+            document.querySelectorAll("#groceryList li").forEach(li => groceries.push(li.textContent.replace("Remove", "").trim()));
+            let templateParams = {
+                first_name: document.getElementById("firstName").value,
+                last_name: document.getElementById("lastName").value,
+                contact_number: document.getElementById("contactNumber").value,
+                email: document.getElementById("email").value,
+                store: document.getElementById("store").value,
+                groceries: groceries.join(", "),
+                delivery_date: document.getElementById("deliveryDate").value,
+                delivery_time: document.getElementById("deliveryTime").value,
+            };
+            emailjs.send("service_540su0v", "template_h4s7irk", templateParams)
+                .then(response => alert("Order sent successfully! You will recieve a confirmation call from our team within the next hour"))
+                .catch(error => alert("Failed to send order."));
+        }
+    </script>
 </body>
 </html>
